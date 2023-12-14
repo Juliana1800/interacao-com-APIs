@@ -2,19 +2,24 @@
   "produtos": [
     {
       "id": 1,
-      "name": "João",
-      "senha": "123456"
+      "name": "retrovisor"
     },
     {
       "id": 2,
-      "name": "Juliana",
-      "senha": "7890"
+      "name": "roda"
+    },
+    {
+      "id":3,
+      "name":"volante"
+    },
+    {
+      
     }
   ],
   "clientes": [
     {
-      "id": 2
-      "nome": Lucas
+      "id": 2,
+      "name": "Lucas",
       "senha": 123456
     }
   ]

@@ -15,15 +15,27 @@
    </div>
     <script>
         document.querySelector('#carregar').addEventListener('click', ()=>{
-            fetch('http://[::1]:3000/produtos'{
+            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{
                 method:'GET',
                 headers:{
                     contentType: 'application/json'
                 }
-
             })
-            .then(response)=>response.json
-            .then(response=>)
+                .then(response=>response.json())//entao pega essa entrada
+                .then(response=> {
+
+                    const produtos= document.querySelector('#produtos');
+                    const tituloprodutos=document.createElement('h2');
+
+                    produtos.innerHTML+='';
+                    tituloprodutos.innerHTML='Produtos';
+                    produtos.append(tituloprodutos);
+
+                    
+                    response.forEach(produto => {
+                        produtos.innerHTML += `<ul><il>ID:${produto.id}</li><li>Nome;${produto.nome}</li></ul>`;  
+                    });
+                })
         })
     </script>
 </body>
