@@ -13,7 +13,8 @@
       "name":"volante"
     },
     {
-      
+      "id":4,
+      "name":"farol"
     }
   ],
   "clientes": [
