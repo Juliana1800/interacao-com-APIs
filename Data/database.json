@@ -1,0 +1,21 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "name": "João",
+      "senha": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Juliana",
+      "senha": "7890"
+    }
+  ],
+  "clientes": [
+    {
+      "id": 2
+      "nome": Lucas
+      "senha": 123456
+    }
+  ]
+}
