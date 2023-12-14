@@ -4,6 +4,7 @@
         ".vscode/**",
         "**/*.scss",
         "**/*.sass",
-        "**/*.ts"
+        "**/*.ts",
+        "**/database.json"
     ]
 }
