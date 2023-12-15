@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intereção API | Read com GET</title>
+    <title>Intereção API | READ com GET</title>
 </head>
 <body>
-    <h1>Read com GET &#128556;</h1>
+    <h1>READ com GET &#128556;</h1>
 
     <a href="./index.html">Home</a>
     <button type="button" id="carregar">Carregar produtos</button>
@@ -14,7 +14,7 @@
    </div>
     <script>
         document.querySelector('#carregar').addEventListener('click', ()=>{
-            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{
+            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
                 method:'GET',
                 headers:{
                     contentType: 'application/json'
@@ -32,7 +32,7 @@
 
                     
                     response.forEach(produto => {
-                        produtos.innerHTML += `<ul><il>ID:${produto.id}</li><li>Nome;${produto.name}</li></ul>`;  
+                        produtos.innerHTML += `<ul><il>ID: ${produto.id}</li><li>Nome: ${produto.name}</li></ul>`;  
                     });
                 })
         })
