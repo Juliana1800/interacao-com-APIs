@@ -23,7 +23,7 @@
         </div>
 
         <div class="controle-form">
-            <label for="tipoProduto">Tipo</label>
+            <label for="tipoProduto">Tipo:</label>
             <select name="tipoproduto" id="tipoProduto">
                 <option value="controle" selected>Controle</option>
                 <option value="suspencao">Suspenção</option>
@@ -68,27 +68,28 @@
             })
         })
 
-        function buscaProdutos ( ) {
+        function buscaProdutos() {
+
             fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
             method:'GET',
             headers:{
                 'ContentType': 'application/json'
-            }
-        })
+                }
+            })
             .then(response => response.json())//entao pega essa entrada
             .then(response => {
 
                 const produtos= document.querySelector('#produtos');
-                const tituloprodutos=document.createElement('h2');
+                const tituloProdutos=document.createElement('h2');
 
                 produtos.innerHTML+='';
-                tituloprodutos.innerHTML='Produtos';
-                produtos.append(tituloprodutos);
+                tituloProdutos.innerHTML='Produtos';
+                produtos.append(tituloProdutos);
 
                 
                 response.forEach(produto => {
                     produtos.innerHTML += `<ul><il>ID: ${produto.id}</li>
-                    <li>Nome: ${produto.nome}</li></ul>Tipo: ${produto.tipo ?produto.tipo: ""}</li></ul>`;  
+                    <li>Nome: ${produto.nome}</li><li>Tipo: ${produto.tipo ?produto.tipo: ""}</li></ul>`;  
                 });
             })
         }

@@ -7,9 +7,10 @@
 </head>
 <body>
     <h1>CREATE com POST 👀</h1>
-
     <a href="./index.html">🎈 Home</a>
+
     <form action="" method="post">
+
         <div class="controle-form">
             <label for="idProduto">ID: </label>
             <input type="text" id="idProduto" name="idProduto" disabled>
@@ -19,8 +20,9 @@
             <label for="nomeProduto">Nome: </label>
             <input type="text" id="nomeProduto" name="nomeProduto" >
         </div>
+
         <div class="controle-form">
-            <label for="tipoProduto">Tipo</label>
+            <label for="tipoProduto">Tipo: </label>
             <select name="tipoproduto" id="tipoProduto">
                 <option value="controle" selected>Controle</option>
                 <option value="suspencao">Suspenção</option>
@@ -34,15 +36,14 @@
     <div id="produtos"></div>
 
     <script>
-        buscaProdutos ();
-        document.querySelector('#cadastrar').addEventListener('click', ()=> {
+        buscaProdutos();
 
+        document.querySelector('#cadastrar').addEventListener('click', ()=> {
             const dadosProduto = {
                 "id": null,
                 "nome": document.querySelector('#nomeProduto').value,
                 "tipo": document.querySelector('#tipoProduto').value
             }
-
             fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
                 method:'POST',
                 headers:{
@@ -61,26 +62,27 @@
         })
 
         function buscaProdutos(){
+
             fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
             method:'GET',
             headers:{
                 'ContentType': 'application/json'
-            }
-        })
+                }
+            })
             .then(response=>response.json())//entao pega essa entrada
             .then(response=> {
 
                 const produtos= document.querySelector('#produtos');
-                const tituloprodutos=document.createElement('h2');
+                const tituloProdutos=document.createElement('h2');
 
                 produtos.innerHTML+='';
-                tituloprodutos.innerHTML='Produtos';
-                produtos.append(tituloprodutos);
+                tituloProdutos.innerHTML='Produtos';
+                produtos.append(tituloProdutos);
 
                 
                 response.forEach(produto => {
                     produtos.innerHTML += `<ul><il>ID: ${produto.id}</li>
-                    <li>Nome: ${produto.nome}</li></ul>Tipo: ${produto.tipo ?produto.tipo: ""}</li></ul>`;  
+                    <li>Nome: ${produto.nome}</li><li>Tipo: ${produto.tipo ? produto.tipo: ""}</li></ul>`;  
                 });
             })
         }

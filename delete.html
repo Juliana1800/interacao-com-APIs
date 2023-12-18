@@ -13,7 +13,7 @@
     <form action="" method="post">
 
         <div class="controle-form">
-            <label for="idProduto">ID: </label>
+            <label for="idProduto">ID:</label>
             <input type="number" min="1" id="idProduto" name="idProduto" required>
         </div>
         
@@ -23,7 +23,7 @@
         </div>
 
         <div class="controle-form">
-            <label for="tipoProduto">Tipo</label>
+            <label for="tipoProduto">Tipo:</label>
             <select name="tipoproduto" id="tipoProduto" disabled>
                 <option value="controle" selected>Controle</option>
                 <option value="suspencao">Suspenção</option>
@@ -61,13 +61,13 @@
             })
         })
 
-        function buscaProdutos ( ) {
-            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
+        function buscaProdutos() {
+            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
             method:'GET',
             headers:{
                 'ContentType': 'application/json'
-            }
-        })
+                }
+            })
             .then(response => response.json())//entao pega essa entrada
             .then(response => {
 
@@ -81,7 +81,7 @@
                 
                 response.forEach(produto => {
                     produtos.innerHTML += `<ul><il>ID: ${produto.id}</li>
-                    <li>Nome: ${produto.nome}</li></ul>Tipo: ${produto.tipo ?produto.tipo: ""}</li></ul>`;  
+                    <li>Nome: ${produto.nome}</li><li>Tipo: ${produto.tipo ?produto.tipo: ""}</li></ul>`;  
                 });
             })
         }
