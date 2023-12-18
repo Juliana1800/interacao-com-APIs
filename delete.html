@@ -3,56 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intereção API | CREATE com POST</title>
+    <title>Intereção API </title>
 </head>
 <body>
-    <h1>CREATE com POST 👀</h1>
+    <h1>DELETE com DELETE 🗑</h1>
 
-    <a href="./index.html">🎈 Home</a>
+    <a href="./index.html">🎈Home</a>
+
     <form action="" method="post">
+
         <div class="controle-form">
             <label for="idProduto">ID: </label>
-            <input type="text" id="idProduto" name="idProduto" disabled>
+            <input type="number" min="1" id="idProduto" name="idProduto" required>
         </div>
         
         <div class="controle-form">
             <label for="nomeProduto">Nome: </label>
-            <input type="text" id="nomeProduto" name="nomeProduto" >
+            <input type="text" id="nomeProduto" name="nomeProduto" disabled>
         </div>
+
         <div class="controle-form">
             <label for="tipoProduto">Tipo</label>
-            <select name="tipoproduto" id="tipoProduto">
+            <select name="tipoproduto" id="tipoProduto" disabled>
                 <option value="controle" selected>Controle</option>
                 <option value="suspencao">Suspenção</option>
                 <option value="carroceria">Carroceria</option>
                 <option value="acessorio">Acessório</option>
+                <option value="seguranca">Segurança</option>
             </select>
         </div>
-        <button type="button" id= "cadastrar">Cadastrar</button>
+
+        <button type="button" id= "remover">Remover</button>
+
     </form>
 
     <div id="produtos"></div>
 
     <script>
-        buscaProdutos ();
-        document.querySelector('#cadastrar').addEventListener('click', ()=> {
+        buscaProdutos();
 
-            const dadosProduto = {
-                "id": null,
-                "nome": document.querySelector('#nomeProduto').value,
-                "tipo": document.querySelector('#tipoProduto').value
-            }
+        document.querySelector('#remover').addEventListener('click', ()=> {
+            
 
-            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
-                method:'POST',
+            fetch(`https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos ${idProduto}`,{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
+                method:'DELETE',
                 headers:{
                     'ContentType': 'application/json'
-                },
-                body: JSON.stringify(dadosProduto)
+                }
             })
             .then(response => {
                 if (response.ok) {
-                    window.alert("Produto Cadastrado com sucesso!");
+                    window.alert("Produto Removido");
                     buscaProdutos();
                 }else {
                     window.alert("Erro");
@@ -60,22 +61,22 @@
             })
         })
 
-        function buscaProdutos(){
-            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/produtos',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
+        function buscaProdutos ( ) {
+            fetch('https://stunning-spoon-97959jqrvwwr2g6r-3000.app.github.dev/',{ //http:// quando estiver NÃo ESTIVER NO CODESPACES http://[::1]3000//
             method:'GET',
             headers:{
                 'ContentType': 'application/json'
             }
         })
-            .then(response=>response.json())//entao pega essa entrada
-            .then(response=> {
+            .then(response => response.json())//entao pega essa entrada
+            .then(response => {
 
                 const produtos= document.querySelector('#produtos');
                 const tituloprodutos=document.createElement('h2');
 
                 produtos.innerHTML+='';
-                tituloprodutos.innerHTML='Produtos';
-                produtos.append(tituloprodutos);
+                tituloProdutos.innerHTML='Produtos';
+                produtos.append(tituloProdutos);
 
                 
                 response.forEach(produto => {
@@ -84,7 +85,6 @@
                 });
             })
         }
-    
     </script>
 </body>
 </html>
